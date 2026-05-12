@@ -195,11 +195,58 @@ body.dark .fc-2 { background: rgba(249,168,212,0.6); }
 .card p { color: var(--muted); line-height: 1.6; }
 
 /* Stats */
-.stats { padding: 5rem 0; background: var(--gradient-brand); position: relative; overflow: hidden; color: #fff; }
-.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; text-align: center; position: relative; }
-@media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
-.stat-num { font-size: clamp(2.5rem, 6vw, 3.75rem); font-weight: 800; }
-.stat-lbl { margin-top: 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.85; }
+
+.stats{
+  padding:5rem 0;
+  background:var(--gradient-brand);
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2rem;
+  text-align:center;
+  position:relative;
+}
+
+@media (min-width:768px){
+  .stats-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+.stat-num{
+  font-size:clamp(2rem,5vw,3rem);
+
+  font-weight:700;
+
+  line-height:1.3;
+
+  /* EVITA QUE SE CORTE */
+  word-break:keep-all;
+
+  padding:0 .5rem;
+}
+
+.stat-lbl{
+  margin-top:.8rem;
+
+  font-size:.8rem;
+
+  text-transform:uppercase;
+
+  letter-spacing:.15em;
+
+  opacity:.85;
+
+  line-height:1.5;
+
+  padding:0 .5rem;
+}
+
 
 /* About */
 .about-grid { display: grid; gap: 4rem; align-items: center; }
@@ -444,50 +491,112 @@ body.dark .mv-blob-2 { background: rgba(124, 58, 237, 0.45); }
 .contact-info a:hover{background:rgba(255,255,255,.2)}
 
 /* ===== Partners / Aliados ===== */
-.partners-section { overflow: hidden; }
-.partners-track-wrap {
-  position: relative;
-  overflow: hidden;
-  padding: 1.5rem 0;
+.partners-section{
+  overflow:hidden;
+
+  /* FONDO AZUL */
+  background:var(--gradient-brand);
+
+  color:#fff;
+
+  position:relative;
 }
+
+/* Texto blanco */
+.partners-section .section-head p{
+  color:rgba(255,255,255,0.8);
+}
+
+.partners-section .kicker{
+  color:#bfe9ff;
+}
+
+/* Difuminados laterales */
+.partners-track-wrap{
+  position:relative;
+  overflow:hidden;
+  padding:1.5rem 0;
+}
+
 .partners-track-wrap::before,
-.partners-track-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 120px;
-  z-index: 2;
-  pointer-events: none;
+.partners-track-wrap::after{
+  content:'';
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:120px;
+  z-index:2;
+  pointer-events:none;
 }
-.partners-track-wrap::before { left: 0; background: linear-gradient(to right, var(--background), transparent); }
-.partners-track-wrap::after  { right: 0; background: linear-gradient(to left,  var(--background), transparent); }
-.partners-track {
-  display: flex;
-  gap: 1.25rem;
-  width: max-content;
-  animation: marquee 28s linear infinite;
+
+
+
+/* Carrusel */
+.partners-track{
+  display:flex;
+  gap:1.25rem;
+  width:max-content;
+  animation:marquee 28s linear infinite;
 }
-.partners-track:hover { animation-play-state: paused; }
-.partner-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  padding: 0.9rem 1.75rem;
-  border-radius: 1rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  font-weight: 700;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  transition: border-color .2s, transform .2s;
-  cursor: default;
+
+.partners-track:hover{
+  animation-play-state:paused;
 }
-.partner-logo:hover { border-color: var(--accent); transform: translateY(-3px); }
-.partner-logo span { font-weight: 400; color: var(--muted); font-size: 0.85rem; }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+
+/* Tarjetas */
+.partner-logo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.3rem;
+
+  padding:0.9rem 1.75rem;
+
+  border-radius:1rem;
+
+  background:rgba(255,255,255,0.12);
+
+  border:1px solid rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(10px);
+
+  color:#fff;
+
+  font-weight:700;
+  font-size:0.95rem;
+
+  white-space:nowrap;
+
+  transition:
+    border-color .2s,
+    transform .2s,
+    background .2s;
+
+  cursor:default;
+}
+
+.partner-logo:hover{
+  border-color:#fff;
+
+  background:rgba(255,255,255,0.18);
+
+  transform:translateY(-3px);
+}
+
+.partner-logo span{
+  font-weight:400;
+  color:rgba(255,255,255,0.7);
+  font-size:0.85rem;
+}
+
+@keyframes marquee{
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
 }
 
 /* ===== Cases / Clientes ===== */
